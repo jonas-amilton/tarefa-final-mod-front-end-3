@@ -99,8 +99,9 @@ export default function CardLogin() {
   return (
     <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6}>
       <Box
+        component="form"
         sx={{
-          mt: "20%",
+          mt: 4,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -109,48 +110,44 @@ export default function CardLogin() {
         <Typography
           component="h1"
           variant="h5"
-          sx={{ mt: 7, fontSize: 30, fontStyle: "italic", fontWeight: "900" }}
+          sx={{ mt: 7, fontSize: 30, fontWeight: "900" }}
         >
           Login
         </Typography>
+        <Grid item xs={12} width="30vw">
+          <Input
+            label="E-mail"
+            type="email"
+            name="email"
+            onChange={changeInput}
+            value={email}
+          />
+        </Grid>
 
-        <Box component="form" sx={{ mt: 2 }}>
-          <Grid item xs={12} width="30vw">
-            <Input
-              label="E-mail"
-              type="email"
-              name="email"
-              onChange={changeInput}
-              value={email}
-            />
-          </Grid>
+        <Grid item xs={12} width="30vw">
+          <Input
+            label="Senha"
+            type="password"
+            name="password"
+            onChange={changeInput}
+            value={password}
+          />
+        </Grid>
 
-          <Grid item xs={12} width="30vw">
-            <Input
-              label="Senha"
-              type="password"
-              name="password"
-              onChange={changeInput}
-              value={password}
-            />
-          </Grid>
-
+        <Grid item xs={12} width="30vw">
           <BasicButton tipoBasicButton="button" onClick={handleClick}>
             Entrar
           </BasicButton>
-
-          <Grid container>
-            <Grid item>
-              <Link
-                style={{ cursor: "pointer" }}
-                variant="body2"
-                onClick={() => navigate("/register")}
-              >
-                Não tem uma conta? Inscrever-se
-              </Link>
-            </Grid>
-          </Grid>
-        </Box>
+        </Grid>
+        <Grid item xs={12} width="30vw">
+          <Link
+            style={{ cursor: "pointer" }}
+            variant="body2"
+            onClick={() => navigate("/register")}
+          >
+            Não tem uma conta? Inscrever-se
+          </Link>
+        </Grid>
       </Box>
     </Grid>
   );
